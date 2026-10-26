@@ -1,0 +1,28 @@
+name: Markdown Lint
+
+# No `paths:` filter. `markdownlint` backs a required check on `main`, and a
+# filtered workflow would never report that check on a pull request that touched
+# only a workflow or a config file, leaving the pull request blocked forever.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdownlint-cli2
+        run: npm install -g markdownlint-cli2
+
+      - name: Lint markdown
+        run: markdownlint-cli2 "**/*.md"
