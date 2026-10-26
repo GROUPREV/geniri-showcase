@@ -30,16 +30,13 @@ Two streams, running together:
   outside the company. Neither stage has a committed date, and this document will
   not pretend otherwise.
 
-## What we learned, stated plainly
+## The constraint that shaped the work
 
-- A working product changes the curriculum. The interesting problems in week three
-  were not "can this be built" but "can this be changed on a Tuesday without
-  breaking a customer's invoice".
-- Short feedback loops matter more than clever features. The generation queue and
-  the admin review were the two places where a delay turned into a support
-  conversation.
-- A release is a promise about all the cases you have not seen yet. v0.4 is in
-  alpha because that promise is not yet met, not because the code is unfinished.
+Every change had to survive the product it landed in: a customer's invoice, a
+balance, a generation already in flight. That is the difference between this and a
+prototype, and it is the part this repository tries to show. The architecture and
+the decision records describe the machinery a change has to fit into; the release
+state above says honestly where that work stands.
 
 ## Still to be added
 
