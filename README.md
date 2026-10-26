@@ -1,5 +1,7 @@
 # Geniri
 
+**In one line:** Geniri is a generative media studio for images, video, music and voice, billed in credits and paid in dinars.
+
 Geniri is a generative media platform for working creatives, built by REVOLUTION Group and live at [geniri.io](https://www.geniri.io). Customers buy credits and generate images, video, music and voice from a catalogue of third-party models. The platform meters the credits, dispatches the job, stores the result, and refunds automatically when a generation fails. Payment is by CCP transfer — BaridiMob or at the post office — against a `GNR-…` reference, reviewed by a person in an admin queue, with a French invoice issued on confirmation.
 
 This repository is the record we submitted to the **ThirdUni AI programme** (September 2026). It explains how the platform is built, what it is built with, the decisions that shaped it, and shows a few short excerpts of the code. The product's source stays private. [NOTICE.md](NOTICE.md) says exactly what is withheld and why.
@@ -13,8 +15,8 @@ This repository is the record we submitted to the **ThirdUni AI programme** (Sep
 
 | # | Item | Answer |
 | --- | --- | --- |
-| 1 | Name and one-line summary | The title and the first paragraph |
-| 2 | Description | [What a customer does](#what-a-customer-does) |
+| 1 | Name and one-line summary | The title and the line under it, 19 words |
+| 2 | Description | [What a customer does](#what-a-customer-does), 146 words |
 | 3 | Live demo | [geniri.io](https://www.geniri.io) — free account, 2,500 credits, no card |
 | 4 | Code repository | This repository: [architecture](ARCHITECTURE.md), four decision records, two code excerpts |
 | 5 | Demo video | Linked at the top of this page once recorded, before 31 October 2026 |
@@ -24,11 +26,11 @@ This repository is the record we submitted to the **ThirdUni AI programme** (Sep
 
 ## What a customer does
 
-A customer buys a credit pack, opens a creative surface, writes a prompt, chooses a model and a format, and generates. Video and music jobs run asynchronously: the job is queued, the provider is called, the result is stored, and the credit is charged for the job and returned if it fails. A failed generation is refunded without a support ticket, because the ledger reconciles the failure as part of the same flow that charged for it.
+A customer buys credits, opens a creative surface, writes a prompt, chooses a model and a format, and generates. Video and music jobs run asynchronously: the job is queued, the provider is called, the result is stored, and the credit is charged for the job and returned if it fails. The refund is written by the same transaction that records the failure, so nobody has to open a ticket for it.
 
-Administration is deliberate, not automated. Payments arrive by CCP transfer, by BaridiMob or at a post office, with a `GNR-…` reference. Someone opens `/admin`, matches the transfer to the order, and confirms it; confirmation is what issues the invoice and releases the credits. This is slower than a card checkout and it is the point: the customer is buying from a small studio, in a market where transfer is the normal instrument for a business purchase.
+Payment is by CCP transfer — BaridiMob or the post office — with a `GNR-…` reference. Someone opens the admin queue, matches the transfer to the order, and confirms it; confirmation issues the French invoice and releases the credits. Slower than a card checkout, and deliberately so: it is how a business purchase in Algeria actually gets paid.
 
-The platform speaks French, English and Arabic, and Arabic is treated as a direction as well as a language, not as translated text dropped into a left-to-right page.
+The platform speaks French, English and Arabic, and Arabic is a direction as well as a language.
 
 ## Try it
 
