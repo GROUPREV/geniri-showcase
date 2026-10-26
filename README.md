@@ -1,6 +1,6 @@
 # Geniri
 
-Geniri is a generative media platform for working creatives, built by REVOLUTION Group and live at [geniri.io](https://www.geniri.io). Customers buy credits and generate images, video, music, voice and 3D from a catalogue of third-party models. The platform meters the credits, dispatches the job, stores the result, and refunds automatically when a generation fails. Payment is by bank transfer against a `GNR-…` reference, reviewed by a person in an admin queue, with a French invoice issued on confirmation.
+Geniri is a generative media platform for working creatives, built by REVOLUTION Group and live at [geniri.io](https://www.geniri.io). Customers buy credits and generate images, video, music and voice from a catalogue of third-party models. The platform meters the credits, dispatches the job, stores the result, and refunds automatically when a generation fails. Payment is by CCP transfer — BaridiMob or at the post office — against a `GNR-…` reference, reviewed by a person in an admin queue, with a French invoice issued on confirmation.
 
 This repository is the record we submitted to the **ThirdUni AI programme** (September 2026). It explains how the platform is built, what it is built with, the decisions that shaped it, and shows a few short excerpts of the code. The product's source stays private. [NOTICE.md](NOTICE.md) says exactly what is withheld and why.
 
@@ -15,7 +15,7 @@ This repository is the record we submitted to the **ThirdUni AI programme** (Sep
 | --- | --- | --- |
 | 1 | Name and one-line summary | The title and the first paragraph |
 | 2 | Description | [What a customer does](#what-a-customer-does) |
-| 3 | Live demo | [geniri.io](https://www.geniri.io) |
+| 3 | Live demo | [geniri.io](https://www.geniri.io) — free account, 2,500 credits, no card |
 | 4 | Code repository | This repository: [architecture](ARCHITECTURE.md), four decision records, two code excerpts |
 | 5 | Demo video | Linked at the top of this page once recorded, before 31 October 2026 |
 | 6 | Team and roles | [Team](#team-and-roles) below, and [CONTRIBUTORS.md](CONTRIBUTORS.md) |
@@ -26,13 +26,13 @@ This repository is the record we submitted to the **ThirdUni AI programme** (Sep
 
 A customer buys a credit pack, opens a creative surface, writes a prompt, chooses a model and a format, and generates. Video and music jobs run asynchronously: the job is queued, the provider is called, the result is stored, and the credit is charged for the job and returned if it fails. A failed generation is refunded without a support ticket, because the ledger reconciles the failure as part of the same flow that charged for it.
 
-Administration is deliberate, not automated. Payments arrive by bank transfer with a `GNR-…` reference. Someone opens `/admin`, matches the transfer to the order, and confirms it; confirmation is what issues the invoice and releases the credits. This is slower than a card checkout and it is the point: the customer is buying from a small studio, in a market where transfer is the normal instrument for a business purchase.
+Administration is deliberate, not automated. Payments arrive by CCP transfer, by BaridiMob or at a post office, with a `GNR-…` reference. Someone opens `/admin`, matches the transfer to the order, and confirms it; confirmation is what issues the invoice and releases the credits. This is slower than a card checkout and it is the point: the customer is buying from a small studio, in a market where transfer is the normal instrument for a business purchase.
 
 The platform speaks French, English and Arabic, and Arabic is treated as a direction as well as a language, not as translated text dropped into a left-to-right page.
 
 ## Try it
 
-The product is live at [geniri.io](https://www.geniri.io). It opens in a browser and needs no install; an account is an email address away. If you are judging this submission and sign-up is closed when you look, ask through the site and an account will be made for you.
+The product is live at [geniri.io](https://www.geniri.io). It opens in a browser and needs no install. Sign-up is open: [create an account](https://www.geniri.io/auth/sign-up) with an email address and the free plan starts with 2,500 credits, enough to make real generations rather than look at screenshots — and to watch the balance move as they land. No card, no call with a salesperson. Paid plans are priced in dinars and paid by CCP transfer, so a judge who wants to test a paid surface should ask and an account will be provisioned instead.
 
 The source is private, so there is no clone-and-run in this repository. What a checkout takes, for the record: Node 20.19 or newer (22.13 and 24 also work), pnpm 10.19, and Docker for the local Supabase stack, then `pnpm install`, `pnpm supabase:web:start`, `pnpm supabase:web:reset` and `pnpm dev`. [ARCHITECTURE.md](ARCHITECTURE.md) says what each part does once it is running.
 

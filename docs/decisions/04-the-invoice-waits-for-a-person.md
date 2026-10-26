@@ -5,20 +5,21 @@
 ## Context
 
 Geniri sells to creative professionals and small studios in Algeria. For a
-business purchase in that market, a bank transfer is the ordinary instrument; a
-card checkout is the exception, and a card checkout with an invoice that has to
-match the company's accounting is a bigger promise than it looks.
+business purchase in that market, a CCP transfer — BaridiMob, or at the post
+office — is the ordinary instrument; a card checkout is the exception, and a card
+checkout with an invoice that has to match the company's accounting is a bigger
+promise than it looks.
 
 Two paths were possible: take the money automatically with a card processor, or
-accept transfers and confirm them by hand. The first is faster for the customer
+accept CCP transfers and confirm them by hand. The first is faster for the customer
 and hands the failure modes to a third party: chargebacks, processor holds, refund
 timing, and a reconciliation job that has to trust a webhook.
 
 ## Decision
 
-Accept payment by bank transfer against a `GNR-…` reference, and have a person
-confirm the match in `/admin`. Confirmation releases the credits and issues the
-French invoice.
+Accept payment by CCP transfer, by BaridiMob or at the post office, against a
+`GNR-…` reference, and have a person confirm the match in `/admin`. Confirmation
+releases the credits and issues the French invoice.
 
 Invoice numbers come from one gapless counter, assigned inside the confirming
 transaction, so a double click cannot skip a number or produce a second invoice
