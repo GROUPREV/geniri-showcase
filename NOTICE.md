@@ -7,6 +7,10 @@ Geniri is built, not a release of Geniri's source, and it grants no licence to
 reuse, redistribute or build on anything published here beyond reading it and
 quoting short passages with attribution.
 
+The source itself is not published under any terms, at any stage of evaluation,
+and no request changes that. That is a deliberate choice about the product, not
+an omission from this page.
+
 ## What is published
 
 - The written explanation: the README, the architecture, the decision records and
@@ -41,6 +45,6 @@ the people who did the programme work and what each of them did. Geniri itself
 predates the programme; the platform is the context, and the four weeks are the
 release work described in [docs/program.md](docs/program.md).
 
-If you are evaluating this submission and need to see something that is not
-published, ask through [geniri.io](https://www.geniri.io) and we will answer
-directly.
+If you are evaluating this submission and want to see a surface that is not open
+on the free plan, ask through [geniri.io](https://www.geniri.io) and we will show
+it to you in the running product.
