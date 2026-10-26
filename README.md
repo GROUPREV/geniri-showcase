@@ -11,7 +11,7 @@ This repository is the record we submitted to the **ThirdUni AI programme** (Sep
 
 ## What a customer does
 
-A customer buys a credit pack, opens a creative surface, writes a prompt, chooses a model and a format, and generates. Video and music jobs run asynchronously: the job is queued, the provider is called, the result is stored, and the credit is settled against what was actually produced. A failed generation is refunded without a support ticket, because the ledger reconciles the failure as part of the same flow that charged for it.
+A customer buys a credit pack, opens a creative surface, writes a prompt, chooses a model and a format, and generates. Video and music jobs run asynchronously: the job is queued, the provider is called, the result is stored, and the credit is charged for the job and returned if it fails. A failed generation is refunded without a support ticket, because the ledger reconciles the failure as part of the same flow that charged for it.
 
 Administration is deliberate, not automated. Payments arrive by bank transfer with a `GNR-…` reference. Someone opens `/admin`, matches the transfer to the order, and confirms it; confirmation is what issues the invoice and releases the credits. This is slower than a card checkout and it is the point: the customer is buying from a small studio, in a market where transfer is the normal instrument for a business purchase.
 
@@ -52,7 +52,7 @@ supabase/           420 ordered SQL migrations, seeds, pgTAP tests
 
 The four weeks did not produce a greenfield demo. Djaber Djarri joined as a participant and worked inside the running platform; Pius Sunday Ojwo led the engineering. The output was a set of changes that shipped to production and the release now in front of it: **v0.4**, which is in internal alpha testing before it moves to beta, a protected sub-public test. There is no date committed for either stage, and this file will not invent one.
 
-Live demonstration links and the Demo Day date will be added here before the final submission is handed in. [docs/program.md](docs/program.md) records the weeks as they were published by ThirdUni, what we actually worked on in each, and what was left unfinished.
+Live demonstration links and the Demo Day date will be added here before the final submission is handed in. [docs/program.md](docs/program.md) records the programme as ThirdUni published it, what we did inside it, and what still has to be added.
 
 ## The decisions worth reading
 
