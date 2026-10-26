@@ -78,7 +78,7 @@ appear and one place to look when a balance is disputed.
 
 ## Payment, invoice and the admin queue
 
-Payment is by bank transfer. The customer receives a `GNR-…` reference with the
+Payment is by CCP transfer — BaridiMob or at the post office. The customer receives a `GNR-…` reference with the
 order; the transfer arrives with that reference; a person matches it in `/admin`
 and confirms it. Confirmation releases the credits and issues the French invoice.
 
