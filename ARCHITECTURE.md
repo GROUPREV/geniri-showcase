@@ -76,6 +76,13 @@ The admin review reads the same ledger. Confirming a transfer writes the transac
 through the same path as any other credit grant, so there is one way credits
 appear and one place to look when a balance is disputed.
 
+A plan is a row in `billing_plans`, not a constant in the application. The
+checkout reads the plan's price and its credit instalment from that row,
+confirmation grants the first instalment, and the refill cron grants the next
+one each month. The pricing page reads the same figures, and a build guard fails
+when the catalogue and the row disagree, so the page cannot advertise a price
+the checkout does not charge.
+
 ## Payment, invoice and the admin queue
 
 Payment is by CCP transfer — BaridiMob or at the post office. The customer receives a `GNR-…` reference with the
