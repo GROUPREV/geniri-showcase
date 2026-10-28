@@ -40,6 +40,21 @@ The source is private, and it stays private. There is no archive, no partial tre
 
 What this repository is, then, is the record around that source: the shape of the platform, the decisions behind it, and two short excerpts of real code. What you use is the product at [geniri.io](https://www.geniri.io). If a surface you want to see is not open on the free plan, ask and an account will be provisioned — the source does not change hands in any of this.
 
+## Plans
+
+Four paid plans can be bought without a conversation, and Business is a contract above them. Prices are in dinars, as published on 28 October 2026, and paid plans are billed monthly:
+
+| Plan | Price | Credits | What it is |
+| --- | --- | --- | --- |
+| Free | 0 DZD | 2,500 once, at sign-up | The studio with no card |
+| Student | 990 DZD/month | 9,500 a month | For a verified student, 18 or over |
+| Creator | 9,900 DZD/month | 25,000 a month | One person and the premium tools |
+| Pro | 29,000 DZD/month | 125,000 a month | One professional, every surface |
+| Teams | 69,000 DZD/month | 300,000 a month, shared | Up to five seats, with roles and member credit caps |
+| Business | By contract | Agreed with the account | In-person support and training |
+
+Every paid plan is bought the same way: a CCP transfer with a `GNR-…` reference, confirmed by a person. Credits arrive when the transfer is confirmed and refill each month; unused credits carry over. Teams is one monthly charge for up to five seats, not a per-seat price.
+
 ## The stack
 
 | Layer | Choice | Version |
