@@ -1,8 +1,8 @@
 # Geniri
 
-**In one line:** Geniri is a generative media studio for images, video, music and voice, billed in credits and paid in dinars.
+**In one line:** Geniri is a generative media studio for images, video, music, voice and 3D, billed in credits and paid in dinars.
 
-Geniri is a generative media platform for working creatives, built by REVOLUTION Group and live at [geniri.io](https://www.geniri.io). Customers buy credits and generate images, video, music and voice from a catalogue of third-party models. The platform meters the credits, dispatches the job, stores the result, and refunds automatically when a generation fails. Payment is by CCP transfer — BaridiMob or at the post office — against a `GNR-…` reference, reviewed by a person in an admin queue, with a French invoice issued on confirmation.
+Geniri is a generative media platform for working creatives, built by REVOLUTION Group and live at [geniri.io](https://www.geniri.io). Customers buy credits and generate images, video, music, voice and 3D models from a catalogue of third-party models. The platform meters the credits, dispatches the job, stores the result, and refunds automatically when a generation fails. Payment is by CCP transfer — BaridiMob or at the post office — against a `GNR-…` reference, reviewed by a person in an admin queue, with a French invoice issued on confirmation.
 
 This repository is the record we submitted to the **ThirdUni AI programme** (September 2026). It explains how the platform is built, what it is built with, the decisions that shaped it, and shows a few short excerpts of the code. The product's source stays private, deliberately and without exception. [NOTICE.md](NOTICE.md) says exactly what is withheld and why.
 
@@ -42,18 +42,19 @@ What this repository is, then, is the record around that source: the shape of th
 
 ## Plans
 
-Four paid plans can be bought without a conversation, and Business is a contract above them. Prices are in dinars, as published on 28 October 2026, and paid plans are billed monthly:
+Five paid plans can be bought without a conversation, and Business is a contract above them. Prices are in dinars, as set for the November 2026 release, and paid plans are billed monthly:
 
 | Plan | Price | Credits | What it is |
 | --- | --- | --- | --- |
 | Free | 0 DZD | 2,500 once, at sign-up | The studio with no card |
 | Student | 990 DZD/month | 9,500 a month | For a verified student, 18 or over |
+| Starter | 3,900 DZD/month | 9,500 a month, not carried over | The same credits as Student, with no verification |
 | Creator | 9,900 DZD/month | 25,000 a month | One person and the premium tools |
 | Pro | 29,000 DZD/month | 125,000 a month | One professional, every surface |
 | Teams | 69,000 DZD/month | 300,000 a month, shared | Up to five seats, with roles and member credit caps |
 | Business | By contract | Agreed with the account | In-person support and training |
 
-Every paid plan is bought the same way: a CCP transfer with a `GNR-…` reference, confirmed by a person. Credits arrive when the transfer is confirmed and refill each month; unused credits carry over. Teams is one monthly charge for up to five seats, not a per-seat price.
+Every paid plan is bought the same way: a CCP transfer with a `GNR-…` reference, confirmed by a person. Credits arrive when the transfer is confirmed and refill each month; unused credits carry over, except on Starter, whose monthly credits do not roll. Teams is one monthly charge for up to five seats, not a per-seat price.
 
 ## The stack
 
@@ -61,7 +62,7 @@ Every paid plan is bought the same way: a CCP transfer with a `GNR-…` referenc
 | --- | --- | --- |
 | Web application | Next.js App Router, React | Next 16.3.3, React 19.2.8 |
 | Styling | Tailwind CSS, local component library | Tailwind 4.3.3 |
-| Data and auth | Supabase: PostgreSQL, auth, storage, row-level security | supabase-js 2.115.0 |
+| Data and auth | Supabase: PostgreSQL, auth, storage, row-level security | supabase-js 2.112.4 |
 | Language | TypeScript across every app and package | 6.0.3 |
 | Monorepo | pnpm workspaces, Turborepo | pnpm 10.19.0 |
 | Translation | i18next, per-locale JSON, ICU placeholders | i18next 26.4 |
@@ -85,14 +86,28 @@ packages/*          eighteen shared packages: ui, next, i18n, supabase, billing,
                     cms, policies, mailers, monitoring, analytics, otp, features,
                     shared, mcp-server, extension-core, extension-ui,
                     database-webhooks, email-templates
-supabase/           420 ordered SQL migrations, seeds, pgTAP tests
+supabase/           495 ordered SQL migrations, seeds, pgTAP tests
 ```
 
 [ARCHITECTURE.md](ARCHITECTURE.md) goes one level deeper: the request path for a generation, the credit ledger, the admin review, and how the pieces are tested. What it does not do is describe how jobs are routed to models or how prompts are built. That layer is the product's own work and stays private.
 
+## What the product does now
+
+Since the first submission the platform has grown past a generation form. The surfaces below are in the November 2026 release; each is a place a customer can open, not a roadmap item:
+
+- **Omega**, a voice-and-chat assistant that can take a request from words to a result, with the included replies per plan shown before the first one.
+- **Cinema Director**, which builds a short film shot by shot from a brief, with the model chosen to fit the shot.
+- **Brand DNA** and **Workflows**, for keeping a brand's look across generations and chaining steps, with the amount a plan may use stated up front.
+- **A library and a community** for what has been made, with search by date and by model.
+- **3D generation**, next to image, video, music and voice, with prompt enhancement where a tool supports it.
+- **MCP and command-line access**, so an assistant or a script can use the same credits.
+- **Billing a person can follow**: an activity page that lists every charge and refund, a payments list with a downloadable receipt for each confirmed payment, and a clear message when a generation is refused for a reason the customer can act on.
+
+How prompts are built and how models are routed is still not published.
+
 ## What the programme produced
 
-The four weeks did not produce a greenfield demo. Djaber Djarri joined as a participant and worked inside the running platform; Pius Sunday Ojwo led the engineering. The output was a set of changes that shipped to production and the release now in front of it: **v0.4**, which is in internal alpha testing before it moves to beta, a protected sub-public test. There is no date committed for either stage, and this file will not invent one.
+The four weeks did not produce a greenfield demo. Djaber Djarri joined as a participant and worked inside the running platform; Pius Sunday Ojwo led the engineering. The output was a set of changes that shipped to production and the release that carries the rest of them: **v0.4**, which was in internal alpha testing and is now being released to production. This file states the release when it is live, not before.
 
 The walkthrough video and the Demo Day date are added here before the submission closes on 31 October 2026; judging runs 1 to 7 November. [docs/program.md](docs/program.md) records the programme as ThirdUni published it, what we did inside it, and what still has to be added.
 
@@ -121,7 +136,7 @@ Two short ones, chosen because they show the work rather than the product:
 
 ## What happens next
 
-v0.4 moves from internal alpha to a capped beta, then release. The beta is where the creative surfaces meet people who did not build them, so the first weeks are spent on what that exposes rather than on new features. In parallel: the generation queue under load, the admin review for the hours when one person is not at the desk, and documentation good enough for a second engineer to ship without asking. Success is a customer who renews without writing to support, and a release that does not need a hotfix in its first week.
+v0.4 moves from internal alpha to production. After it, the creative surfaces meet people who did not build them, and that is where the creative surfaces meet people who did not build them, so the first weeks are spent on what that exposes rather than on new features. In parallel: the generation queue under load, the admin review for the hours when one person is not at the desk, and documentation good enough for a second engineer to ship without asking. Success is a customer who renews without writing to support, and a release that does not need a hotfix in its first week.
 
 ## Licence
 
